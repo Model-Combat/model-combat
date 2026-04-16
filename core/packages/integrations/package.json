@@ -1,0 +1,21 @@
+{
+  "name": "@model-combat/integrations",
+  "version": "0.1.0",
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "types": "./src/index.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@model-combat/contracts": "workspace:*",
+    "@aws-sdk/client-ec2": "^3.726.1",
+    "@aws-sdk/client-kms": "^3.726.1",
+    "@aws-sdk/client-s3": "^3.726.1",
+    "@octokit/rest": "^21.1.0"
+  }
+}

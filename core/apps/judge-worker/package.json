@@ -1,0 +1,25 @@
+{
+  "name": "@model-combat/judge-worker",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "dev": "node --watch --import tsx src/index.ts",
+    "lint": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "dependencies": {
+    "@model-combat/contracts": "workspace:*",
+    "@model-combat/domain": "workspace:*",
+    "@model-combat/integrations": "workspace:*",
+    "@model-combat/prompting": "workspace:*",
+    "@model-combat/telemetry": "workspace:*",
+    "@temporalio/client": "^1.11.5",
+    "@temporalio/worker": "^1.11.5",
+    "@temporalio/workflow": "^1.11.5"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.2"
+  }
+}

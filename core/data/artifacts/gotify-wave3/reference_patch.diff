@@ -1,0 +1,12 @@
+--- /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-wave3/vuln/database/message.go
++++ /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-wave3/clean/database/message.go
+@@ -37,7 +37,7 @@
+ // GetMessagesByUserSince returns limited messages from a user.
+ // If since is 0 it will be ignored.
+ func (d *GormDatabase) GetMessagesByUserSince(userID uint, limit int, since uint) ([]*model.Message, error) {
+ 	var messages []*model.Message
+-	db := d.DB.Joins("JOIN applications ON applications.id = messages.application_id").
++	db := d.DB.Joins("JOIN applications ON applications.user_id = ?", userID).
+ 		Where("messages.application_id = applications.id").Order("messages.id desc").Limit(limit)
+ 	if since != 0 {
+ 		db = db.Where("messages.id < ?", since)

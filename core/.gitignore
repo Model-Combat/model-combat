@@ -1,7 +1,7 @@
-node_modules
-dist
-.turbo
-.DS_Store
-coverage
+.venv/
+.pytest_cache/
+.model_combat/
+__pycache__/
+*.pyc
 .env
-.env.*
+*.log

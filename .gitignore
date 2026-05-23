@@ -1,0 +1,9 @@
+# Development clutter — not part of the project
+.venv/
+.pytest_cache/
+.model_combat/
+.claude/
+__pycache__/
+*.pyc
+.env
+*.log

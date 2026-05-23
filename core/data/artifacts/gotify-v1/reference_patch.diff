@@ -1,5 +1,5 @@
---- /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-v1/vuln/api/message.go
-+++ /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-v1/clean/api/message.go
+--- /Users/ashikkagupta/Documents/model-combat/core/data/artifacts/gotify-v1/vuln/api/message.go
++++ /Users/ashikkagupta/Documents/model-combat/core/data/artifacts/gotify-v1/clean/api/message.go
 @@ -183,7 +183,7 @@
  			if success := successOrAbort(ctx, 500, err); !success {
  				return

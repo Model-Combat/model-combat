@@ -1,5 +1,5 @@
---- /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-wave3/vuln/database/message.go
-+++ /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-wave3/clean/database/message.go
+--- /Users/ashikkagupta/Documents/model-combat/core/data/artifacts/gotify-wave3/vuln/database/message.go
++++ /Users/ashikkagupta/Documents/model-combat/core/data/artifacts/gotify-wave3/clean/database/message.go
 @@ -37,7 +37,7 @@
  // GetMessagesByUserSince returns limited messages from a user.
  // If since is 0 it will be ignored.

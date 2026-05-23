@@ -1,5 +1,5 @@
---- /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-wave2/vuln/database/application.go
-+++ /Users/ashikkagupta/Documents/model-combat/data/artifacts/gotify-wave2/clean/database/application.go
+--- /Users/ashikkagupta/Documents/model-combat/core/data/artifacts/gotify-wave2/vuln/database/application.go
++++ /Users/ashikkagupta/Documents/model-combat/core/data/artifacts/gotify-wave2/clean/database/application.go
 @@ -62,7 +62,7 @@
  // GetApplicationsByUser returns all applications from a user.
  func (d *GormDatabase) GetApplicationsByUser(userID uint) ([]*model.Application, error) {

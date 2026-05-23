@@ -6,10 +6,20 @@ cd "$ROOT"
 
 # Load .env so secrets always come from there. `set -a` exports each assignment,
 # overriding any stale value already in the shell environment (a common bite).
-if [ -f .env ]; then
+# Walk up from ROOT — most repos keep .env at the project root, but ours has
+# the harness at <repo>/core, so users often leave .env one level up.
+ENV_FILE=""
+for candidate in "$ROOT/.env" "$ROOT/../.env"; do
+  if [ -f "$candidate" ]; then
+    ENV_FILE="$candidate"
+    break
+  fi
+done
+if [ -n "$ENV_FILE" ]; then
+  echo "Loading $ENV_FILE" >&2
   set -a
-  # shellcheck disable=SC1091
-  . ./.env
+  # shellcheck disable=SC1090
+  . "$ENV_FILE"
   set +a
 fi
 

@@ -119,9 +119,24 @@ def _truthy(value: str | None) -> bool:
     return (value or "").strip().lower() in {"1", "true", "yes", "on"}
 
 
+def _find_dotenv() -> Path | None:
+    """Walk up from cwd looking for a .env. Lets the harness work
+    whether the user keeps .env at the project root (./.env) or one
+    level up at the monorepo root (../.env)."""
+    current = Path.cwd().resolve()
+    for parent in (current, *current.parents):
+        candidate = parent / ".env"
+        if candidate.is_file():
+            return candidate
+        # Stop walking once we hit a filesystem boundary or 5 levels up
+        if parent == parent.parent:
+            break
+    return None
+
+
 def _dotenv_value(env_var_name: str) -> str | None:
-    env_path = Path(".env")
-    if not env_path.exists():
+    env_path = _find_dotenv()
+    if env_path is None:
         return None
     try:
         lines = env_path.read_text().splitlines()
